@@ -2,6 +2,7 @@ import IconButton from '@material-ui/core/IconButton';
 import ClearIcon from '@material-ui/icons/Clear';
 import { DateTimePicker } from '@material-ui/pickers';
 import { MaterialUiPickersDate } from '@material-ui/pickers/typings/date';
+import moment from 'moment';
 import React, { MouseEvent, useState } from 'react';
 import { useHistory } from 'react-router';
 import useQueryString from '../../../hooks/query-string';
@@ -13,11 +14,11 @@ interface InputDateProps {
   minDate: number;
 }
 
-const getNullDate = (stringUnix: string | null) => {
+const getNullDate = (stringUnix: string | null): MaterialUiPickersDate => {
   if (!stringUnix) return null;
   const numUnix = parseInt(stringUnix);
   if (!numUnix) return null;
-  return new Date(numUnix * 1000);
+  return moment.unix(numUnix);
 };
 
 const InputDate = ({ label, queryString: queryStr, minDate }: InputDateProps) => {
