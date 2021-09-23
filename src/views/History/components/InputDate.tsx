@@ -22,7 +22,7 @@ const getNullDate = (stringUnix: string | null) => {
 
 const InputDate = ({ label, queryString: queryStr, minDate }: InputDateProps) => {
   const queryString = useQueryString();
-  const [startDate, setStartDate] = useState<Date | null>(getNullDate(queryString.get(queryStr)));
+  const [startDate, setStartDate] = useState<MaterialUiPickersDate | null>(getNullDate(queryString.get(queryStr)));
   const history = useHistory();
 
   const handleStartDateChange = (date: MaterialUiPickersDate) => {
