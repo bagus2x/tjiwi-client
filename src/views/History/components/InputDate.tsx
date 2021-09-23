@@ -1,6 +1,7 @@
 import IconButton from '@material-ui/core/IconButton';
 import ClearIcon from '@material-ui/icons/Clear';
 import { DateTimePicker } from '@material-ui/pickers';
+import { MaterialUiPickersDate } from '@material-ui/pickers/typings/date';
 import React, { MouseEvent, useState } from 'react';
 import { useHistory } from 'react-router';
 import useQueryString from '../../../hooks/query-string';
@@ -24,7 +25,7 @@ const InputDate = ({ label, queryString: queryStr, minDate }: InputDateProps) =>
   const [startDate, setStartDate] = useState<Date | null>(getNullDate(queryString.get(queryStr)));
   const history = useHistory();
 
-  const handleStartDateChange = (date: Date) => {
+  const handleStartDateChange = (date: MaterialUiPickersDate) => {
     setStartDate(date);
     queryString.set(queryStr, (new Date(date.toString()).getTime() / 1000).toString());
     history.push('?' + queryString.toString());
