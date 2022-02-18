@@ -1,1 +1,2 @@
-#  1 + 1 = 2
+- Link [Preview Yt](https://youtu.be/3UqyBmFU9A8)
+- Link [Backend](https://github.com/bagus2x/tjiwi-server)
